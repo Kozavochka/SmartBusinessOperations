@@ -1,0 +1,36 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: smartops-backend:dev
+    container_name: smartops-backend-app
+    env_file:
+      - ./app/.env
+    ports:
+      - "8000:8000"
+    networks:
+      - smartops
+
+  worker:
+    image: smartops-backend:dev
+    container_name: smartops-backend-worker
+    command: ["php", "artisan", "queue:work", "--sleep=1", "--tries=3", "--timeout=90"]
+    env_file:
+      - ./app/.env
+    networks:
+      - smartops
+
+  scheduler:
+    image: smartops-backend:dev
+    container_name: smartops-backend-scheduler
+    command: ["php", "artisan", "schedule:work"]
+    env_file:
+      - ./app/.env
+    networks:
+      - smartops
+
+networks:
+  smartops:
+    external: true
+    name: smartops

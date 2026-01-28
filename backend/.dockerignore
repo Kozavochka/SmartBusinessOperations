@@ -1,0 +1,9 @@
+.git
+.idea
+.vscode
+node_modules
+npm-debug.log
+yarn-error.log
+
+# If you later switch to bind-mounts for local dev, you may want to ignore vendor.
+# For now we keep it buildable in-image, so do NOT ignore vendor.
