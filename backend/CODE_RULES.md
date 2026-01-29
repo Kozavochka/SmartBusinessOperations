@@ -7,3 +7,6 @@
 
 ## Eloquent
 - When working with Eloquent models and collections, avoid N+1 queries by eager-loading required relations in advance.
+
+## Query Builder
+- For list endpoints with filters, use Spatie Query Builder and its filter system.
