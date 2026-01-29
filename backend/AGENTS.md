@@ -1,5 +1,7 @@
 # Backend AGENTS
 
+Project code rules: see `CODE_RULES.md`.
+
 ## Containers
 - `smartops-backend-app` - Laravel app (HTTP on port 8000).
 - `smartops-backend-worker` - Queue worker.
